@@ -2,12 +2,16 @@
   command = "npm install"
   publish = "."
 
+[functions]
+  directory = "functions"
+
 [[redirects]]
-  from = "/api/*"
+  from = "/.netlify/functions/*"
   to = "/.netlify/functions/:splat"
   status = 200
 
+# Pour accéder directement via /api
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
   status = 200

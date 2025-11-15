@@ -1,16 +1,14 @@
-exports.handler = async (event) => {
-  const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type'
-  };
-
+exports.handler = async (event, context) => {
   return {
     statusCode: 200,
-    headers,
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    },
     body: JSON.stringify({
       status: 'OK',
       timestamp: new Date().toISOString(),
-      environment: 'Netlify Functions'
+      message: 'Lygos Backend is running!'
     })
   };
 };
